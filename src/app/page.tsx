@@ -195,6 +195,22 @@ export default function Home() {
                     inspired now.
                 </h2>
             </div>
+            <div className="mt-20 flex">
+                <div className="mx-auto">
+                    <a
+                        href="https://www.producthunt.com/posts/mrrporn?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-mrrporn"
+                        target="_blank"
+                    >
+                        <img
+                            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=409288&theme=neutral"
+                            alt="MRRPorn - Your&#0032;daily&#0032;safe&#0032;dose&#0032;of&#0032;MRR&#0032;screenshots | Product Hunt"
+                            style={{ width: "250px", height: "54px" }}
+                            width="250"
+                            height="54"
+                        />
+                    </a>
+                </div>
+            </div>
             <div className="mt-20 container mx-auto">
                 {blocks.map((groups, b) => (
                     <div
@@ -215,7 +231,10 @@ export default function Home() {
                 </div>
                 <div className="mt-20 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
                     {testimonials.map((t) => (
-                        <div key={t.title} className="relative font-serif h-auto max-w-full border-solid border-[1px] border-slate-200 rounded-lg shadow-lg shadow-slate-300 p-5 flex flex-col bg-slate-700 text-white">
+                        <div
+                            key={t.title}
+                            className="relative font-serif h-auto max-w-full border-solid border-[1px] border-slate-200 rounded-lg shadow-lg shadow-slate-300 p-5 flex flex-col bg-slate-700 text-white"
+                        >
                             <div className="text-3xl">{t.title}</div>
                             <div className="text-xl mt-2">
                                 <p className="mt-5 italic">
