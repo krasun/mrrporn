@@ -82,11 +82,7 @@ export default function Home() {
                 </h1>
                 <h2 className="mx-auto text-3xl text-muted-foreground mt-5 text-center">
                     All these juicy sweet MRR screenshots in one place. Get
-                    inspired{" "}
-                    <span className="line-through text-black text-opacity-20">
-                        or humiliated
-                    </span>{" "}
-                    now.
+                    inspired now.
                 </h2>
             </div>
             <div className="mt-20 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">

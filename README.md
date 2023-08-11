@@ -1,7 +1,6 @@
 ## MRRPorn
 
-Your daily safe dose of [MRR screenshots](https://mrrporn.com). All juicy these MRR screenshots in one place. Get inspired ~~or humiliated~~ now. 
-
+Your daily safe dose of [MRR screenshots](https://mrrporn.com). All juicy these MRR screenshots in one place. Get inspired now.
 
 [Go to MRRPorn.com.](https://mrrporn.com)
 
