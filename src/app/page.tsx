@@ -114,45 +114,6 @@ function About() {
 }
 
 export default function Home() {
-    const tweets: Tweet[] = [
-        {
-            imageUrl: "/images/tweets/tweet-1689599899187212288.jpg",
-            url: "https://twitter.com/philkellr/status/1689599899187212288",
-        },
-        {
-            imageUrl: "/images/tweets/tweet-1685341447590129664.jpg",
-            url: "https://twitter.com/MrNick_Buzz/status/1685341447590129664",
-        },
-        {
-            imageUrl: "/images/tweets/tweet-1688598045938663428.jpg",
-            url: "https://twitter.com/NafetsWirth/status/1688598045938663428",
-        },
-        {
-            imageUrl: "/images/tweets/tweet-1689464320965619712.jpg",
-            url: "https://twitter.com/levelsio/status/1689464320965619712",
-        },
-        {
-            imageUrl: "/images/tweets/tweet-1686401103397519361.jpg",
-            url: "https://twitter.com/helloitsolly/status/1686401103397519361",
-        },
-        {
-            imageUrl: "/images/tweets/tweet-1686000256851312640.jpg",
-            url: "https://twitter.com/marc_louvion/status/1686000256851312640",
-        },
-        {
-            imageUrl: "/images/tweets/tweet-1689417504265834496.jpg",
-            url: "https://twitter.com/Timb03/status/1689417504265834496",
-        },
-        {
-            imageUrl: "/images/tweets/tweet-1686716053659750400.jpg",
-            url: "https://twitter.com/gouthamjay8/status/1686716053659750400",
-        },
-        {
-            imageUrl: "/images/tweets/tweet-1688194276792938496.jpg",
-            url: "https://twitter.com/ashleyrudland/status/1688194276792938496",
-        },
-    ];
-
     const testimonials: Testimonial[] = [
         {
             title: "To inspire",
@@ -172,11 +133,50 @@ export default function Home() {
     ];
 
     const items = useMemo(() => {
+        const tweets: Tweet[] = [
+            {
+                imageUrl: "/images/tweets/tweet-1689599899187212288.jpg",
+                url: "https://twitter.com/philkellr/status/1689599899187212288",
+            },
+            {
+                imageUrl: "/images/tweets/tweet-1685341447590129664.jpg",
+                url: "https://twitter.com/MrNick_Buzz/status/1685341447590129664",
+            },
+            {
+                imageUrl: "/images/tweets/tweet-1688598045938663428.jpg",
+                url: "https://twitter.com/NafetsWirth/status/1688598045938663428",
+            },
+            {
+                imageUrl: "/images/tweets/tweet-1689464320965619712.jpg",
+                url: "https://twitter.com/levelsio/status/1689464320965619712",
+            },
+            {
+                imageUrl: "/images/tweets/tweet-1686401103397519361.jpg",
+                url: "https://twitter.com/helloitsolly/status/1686401103397519361",
+            },
+            {
+                imageUrl: "/images/tweets/tweet-1686000256851312640.jpg",
+                url: "https://twitter.com/marc_louvion/status/1686000256851312640",
+            },
+            {
+                imageUrl: "/images/tweets/tweet-1689417504265834496.jpg",
+                url: "https://twitter.com/Timb03/status/1689417504265834496",
+            },
+            {
+                imageUrl: "/images/tweets/tweet-1686716053659750400.jpg",
+                url: "https://twitter.com/gouthamjay8/status/1686716053659750400",
+            },
+            {
+                imageUrl: "/images/tweets/tweet-1688194276792938496.jpg",
+                url: "https://twitter.com/ashleyrudland/status/1688194276792938496",
+            },
+        ];
+
         const items = tweets.map((t) => <RenderTweet key={t.url} tweet={t} />);
         items.splice(1, 0, <RenderPornDefinition key="porn-definition" />);
         items.splice(8, 0, <About key="about" />);
         return items;
-    }, [tweets]);
+    }, []);
 
     const blocks = chunks(chunks(items, 4), 3);
 
