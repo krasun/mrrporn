@@ -67,7 +67,7 @@ export default function Home() {
         },
     ];
 
-    const items = tweets.map((t) => <RenderTweet tweet={t} />);
+    const items = tweets.map((t) => <RenderTweet key={t.url} tweet={t} />);
     const groups = chunks(items, 3);
 
     return (
@@ -86,8 +86,10 @@ export default function Home() {
                 </h2>
             </div>
             <div className="mt-20 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
-                {groups.map((items) => (
-                    <div className="grid gap-5">{items.map((i) => i)}</div>
+                {groups.map((items, g) => (
+                    <div key={g} className="grid gap-5">
+                        {items.map((i) => i)}
+                    </div>
                 ))}
             </div>
             <div className="my-20 flex px-20">
