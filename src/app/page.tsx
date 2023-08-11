@@ -1,13 +1,20 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { chunks } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useMemo } from "react";
 
 interface Tweet {
     imageUrl: string;
     url: string;
+}
+
+interface Testimonial {
+    title: string;
+    text: string;
+    author: string;
 }
 
 function RenderTweet({ tweet: { imageUrl, url } }: { tweet: Tweet }) {
@@ -23,6 +30,85 @@ function RenderTweet({ tweet: { imageUrl, url } }: { tweet: Tweet }) {
             <Link href={url} target="_blank">
                 <span className="absolute inset-0"></span>
             </Link>
+        </div>
+    );
+}
+
+function RenderPornDefinition() {
+    return (
+        <div className="relative font-serif h-auto max-w-full border-solid border-[1px] border-slate-200 rounded-lg shadow-lg shadow-slate-300 p-5 flex flex-col bg-slate-700 text-white">
+            <div className="text-3xl">
+                <b>P</b>orn
+            </div>
+            <div className="text-xl mt-5">
+                <p>
+                    If you are angry at me or think that porn is a bad word. I
+                    have bad news for you. Porn is not defined by how you expect
+                    it to be defined:
+                </p>
+                <p className="mt-5 italic">
+                    &quot;Porn is denoting written or visual material that
+                    emphasizes the sensuous or sensational aspects of a
+                    non-sexual subject, appealing to its audience in a manner
+                    likened to the titillating effect of pornography.&quot;
+                </p>
+                <p className="mt-5 text-sm">
+                    <Link
+                        href="https://doi.org/10.1093/OED/6367306340"
+                        target="_blank"
+                        className="underline hover:no-underline"
+                    >
+                        Oxford English Dictionary, Oxford University Press, July
+                        2023
+                        <span className="absolute inset-0"></span>
+                    </Link>
+                </p>
+            </div>
+        </div>
+    );
+}
+
+function About() {
+    return (
+        <div className="relative font-serif h-auto max-w-full border-solid border-[1px] border-slate-200 rounded-lg shadow-lg shadow-slate-300 p-5 flex flex-col text-slate-700">
+            <div className="text-xl">
+                <div className="text-3xl">
+                    <b>L</b>ove
+                </div>
+                <p className="mt-5">
+                    Hi, I am{" "}
+                    <Link
+                        className="underline hover:no-underline"
+                        href="https://twitter.com/DmytroKrasun"
+                    >
+                        Dmytro Krasun
+                    </Link>
+                    , the maker behind MRRPorn. If I make you smile for a
+                    second, I am happy.
+                </p>
+                <p className="mt-5">
+                    For days and nights, I am building serious, and some call
+                    them &quot;boring&quot; businesses. But some days, an artist
+                    who is a comedian (?) speaks inside me. Today, I decided to
+                    unleash that artist.
+                </p>
+                <p className="mt-5">
+                    And as a result, you see this project. If you like it, share
+                    it with your friends or{" "}
+                    <Link
+                        className="underline hover:no-underline"
+                        href="https://twitter.com/DmytroKrasun"
+                    >
+                        upvote on Product Hunt
+                    </Link>
+                    .
+                </p>
+                <p className="mt-5">
+                    I don&apos;t plan to make any money from it. I am healing my
+                    heart by producing &quot;art&quot;, or &quot;jokes&quot;.
+                </p>
+                <p className="mt-5">And have a nice day.</p>
+            </div>
         </div>
     );
 }
@@ -67,8 +153,32 @@ export default function Home() {
         },
     ];
 
-    const items = tweets.map((t) => <RenderTweet key={t.url} tweet={t} />);
-    const groups = chunks(items, 3);
+    const testimonials: Testimonial[] = [
+        {
+            title: "To inspire",
+            text: "I am a simple folk. I don't want to brag or show how cool I am. I just want to inspire others. It also helps to grow a following on Twitter.",
+            author: "Anonymous",
+        },
+        {
+            title: "Works like a charm",
+            text: "Sharing MRR screenshots has worked great for my business. I shared a screenshot of my first sale, and then it attracted more attention. And I made more sales.",
+            author: "Anonymous",
+        },
+        {
+            title: "Cheap engagement trick",
+            text: "Every time I feel that my engagements on X (Twitter) drop, I post MRR screenshots. It gives me peace of mind and validation that people still care about me.",
+            author: "Dmytro K.",
+        },
+    ];
+
+    const items = useMemo(() => {
+        const items = tweets.map((t) => <RenderTweet key={t.url} tweet={t} />);
+        items.splice(1, 0, <RenderPornDefinition key="porn-definition" />);
+        items.splice(8, 0, <About key="about" />);
+        return items;
+    }, [tweets]);
+
+    const blocks = chunks(chunks(items, 4), 3);
 
     return (
         <main>
@@ -85,14 +195,57 @@ export default function Home() {
                     inspired now.
                 </h2>
             </div>
-            <div className="mt-20 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
-                {groups.map((items, g) => (
-                    <div key={g} className="grid gap-5">
-                        {items.map((i) => i)}
+            <div className="mt-20 container mx-auto">
+                {blocks.map((groups, b) => (
+                    <div
+                        key={b}
+                        className="mb-5 grid grid-cols-1 md:grid-cols-3 gap-5"
+                    >
+                        {groups.map((items, g) => (
+                            <div key={g} className="grid gap-5">
+                                {items.map((i) => i)}
+                            </div>
+                        ))}
                     </div>
                 ))}
             </div>
-            <div className="my-20 flex px-20">
+            <div className="my-40">
+                <div className="text-6xl font-bold tracking-tighter text-center">
+                    Confessions
+                </div>
+                <div className="mt-20 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
+                    {testimonials.map((t) => (
+                        <div className="relative font-serif h-auto max-w-full border-solid border-[1px] border-slate-200 rounded-lg shadow-lg shadow-slate-300 p-5 flex flex-col bg-slate-700 text-white">
+                            <div className="text-3xl">{t.title}</div>
+                            <div className="text-xl mt-2">
+                                <p className="mt-5 italic">
+                                    &quot;{t.text}&quot;
+                                </p>
+                                <p className="mt-5 text-sm">{t.author}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div></div>
+            </div>
+            <div className="mt-20">
+                <div className="text-6xl font-bold tracking-tighter text-center">
+                    Now, it is your turn.
+                </div>
+                <div className="mt-5 text-3xl text-muted-foreground text-center">
+                    Boost your marketing.
+                </div>
+                <div className="mt-20 text-center">
+                    <Link
+                        href="https://twitter.com/intent/tweet?text=Friends%2C%20I%20want%20to%20share%20with%20you%20my%20MRR%20update%3A%20%0A%0A%3Cpaste%20your%20number%20here%20and%20upload%20a%20screenshot%3E%0A%0A"
+                        target="_blank"
+                        className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg px-10 py-5 text-center mr-2 mb-2 text-2xl"
+                    >
+                        Show off your MRR now. It is free.
+                    </Link>
+                </div>
+            </div>
+            <div className="my-40 flex px-10">
                 <div className="mx-auto">
                     The project is made by{" "}
                     <Link
