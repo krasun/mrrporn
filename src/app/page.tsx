@@ -148,8 +148,8 @@ export default function Home() {
                     <br />
                     They look like an overnight success.
                     <br />
-                    But they don&apos;t tell you what the actors needed to go through
-                    before.
+                    But they don&apos;t tell you what the actors needed to go
+                    through before.
                 </>
             ),
         },
@@ -337,7 +337,7 @@ export default function Home() {
                     <Link
                         href="https://twitter.com/intent/tweet?text=Friends%2C%20I%20want%20to%20share%20with%20you%20my%20MRR%20update%3A%20%0A%0A%3Cpaste%20your%20number%20here%20and%20upload%20a%20screenshot%3E%0A%0A"
                         target="_blank"
-                        className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg px-10 py-5 text-center mr-2 mb-2 text-2xl"
+                        className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg px-5 md:px-10 py-5 text-center mr-2 mb-2 md:text-2xl"
                     >
                         Show off your MRR now. It is free.
                     </Link>
