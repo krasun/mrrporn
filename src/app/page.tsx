@@ -97,7 +97,7 @@ function About() {
                     it with your friends or{" "}
                     <Link
                         className="underline hover:no-underline"
-                        href="https://twitter.com/DmytroKrasun"
+                        href="https://www.producthunt.com/products/mrrporn"
                     >
                         upvote on Product Hunt
                     </Link>
