@@ -13,7 +13,8 @@ interface Tweet {
 
 interface Testimonial {
     title: string;
-    text: string;
+    authorUrl?: string;
+    text: string | React.JSX.Element;
     author: string;
 }
 
@@ -97,7 +98,7 @@ function About() {
                     it with your friends or{" "}
                     <Link
                         className="underline hover:no-underline"
-                        href="https://www.producthunt.com/products/mrrporn"
+                        href="https://www.producthunt.com/posts/mrrporn"
                     >
                         upvote on Product Hunt
                     </Link>
@@ -127,8 +128,75 @@ export default function Home() {
         },
         {
             title: "Cheap engagement trick",
+            authorUrl: "https://twitter.com/DmytroKrasun",
             text: "Every time I feel that my engagements on X (Twitter) drop, I post MRR screenshots. It gives me peace of mind and validation that people still care about me.",
-            author: "Dmytro K.",
+            author: "Dmytro Krasun",
+        },
+        {
+            author: "Philipp Keller",
+            authorUrl: "https://twitter.com/philkellr",
+            title: "Fairy tales",
+            text: (
+                <>
+                    MRR screenshots are like fairy tales:
+                    <br />
+                    They tell a fascinating story.
+                    <br />
+                    They are inspirational.
+                    <br />
+                    But they also leave out important details.
+                    <br />
+                    They look like an overnight success.
+                    <br />
+                    But they don't tell you what the actors needed to go through
+                    before.
+                </>
+            ),
+        },
+        {
+            author: "Dan Mindru",
+            authorUrl: "https://twitter.com/d4m1n",
+            title: "Beautiful screenshots",
+            text: (
+                <>
+                    Too much MRR and too little engagement? You got played by
+                    the algorithm. Even the best do.
+                    <br />
+                    <br />
+                    These don&apos;t work.
+                    <br />
+                    <br />
+                    ❌ beautiful screenshots
+                    <br />
+                    ❌ gifs
+                    <br />
+                    ❌ insightful threads about AI that you copy pasted
+                    <br />
+                    <br />
+                    🙍‍♂️ no followers. no $19 course for you. no luck.
+                    <br />
+                    <br />
+                    Times are changing and you got left in the dust. <br />
+                    Swap to MRR videos - glorious 10, 20 or 30s videos with
+                    [woooosh 💨] - did you see that? Finger licking animations
+                    <br />
+                    <br />
+                    $1000 MRR today will be $2000 MRR tomorrow.
+                    <br />
+                    Tech bros knocking on your DMs every minute.
+                    <br />
+                    Followers for days.
+                    <br />
+                    <br />
+                    You&apos;ll either be on mrrporn or have no MRR to brag
+                    about before you can say monthly rec… [woooshhhhh 💨]!
+                </>
+            ),
+        },
+        {
+            title: "Nothing wrong",
+            text: "Remember! There is nothing wrong with sharing MRR screenshots.",
+            author: "Anonymous",
         },
     ];
 
@@ -229,7 +297,7 @@ export default function Home() {
                 <div className="text-6xl font-bold tracking-tighter text-center">
                     Confessions
                 </div>
-                <div className="mt-20 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div className="mt-20 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
                     {testimonials.map((t) => (
                         <div
                             key={t.title}
@@ -240,7 +308,18 @@ export default function Home() {
                                 <p className="mt-5 italic">
                                     &quot;{t.text}&quot;
                                 </p>
-                                <p className="mt-5 text-sm">{t.author}</p>
+                                <p className="mt-5 text-sm">
+                                    {t.authorUrl ? (
+                                        <Link
+                                            href={t.authorUrl}
+                                            className="underline hover:no-underline"
+                                        >
+                                            {t.author}
+                                        </Link>
+                                    ) : (
+                                        t.author
+                                    )}
+                                </p>
                             </div>
                         </div>
                     ))}
