@@ -215,7 +215,7 @@ export default function Home() {
                 </div>
                 <div className="mt-20 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
                     {testimonials.map((t) => (
-                        <div className="relative font-serif h-auto max-w-full border-solid border-[1px] border-slate-200 rounded-lg shadow-lg shadow-slate-300 p-5 flex flex-col bg-slate-700 text-white">
+                        <div key={t.title} className="relative font-serif h-auto max-w-full border-solid border-[1px] border-slate-200 rounded-lg shadow-lg shadow-slate-300 p-5 flex flex-col bg-slate-700 text-white">
                             <div className="text-3xl">{t.title}</div>
                             <div className="text-xl mt-2">
                                 <p className="mt-5 italic">
