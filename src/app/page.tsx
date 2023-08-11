@@ -148,7 +148,7 @@ export default function Home() {
                     <br />
                     They look like an overnight success.
                     <br />
-                    But they don't tell you what the actors needed to go through
+                    But they don&apos;t tell you what the actors needed to go through
                     before.
                 </>
             ),
