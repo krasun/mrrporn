@@ -191,7 +191,7 @@ export default function Home() {
                     screenshots.
                 </h1>
                 <h2 className="mx-auto text-3xl text-muted-foreground mt-5 text-center">
-                    All these juicy sweet MRR screenshots in one place. Get
+                    All these juicy, sweet MRR screenshots in one place. Get
                     inspired now.
                 </h2>
             </div>
