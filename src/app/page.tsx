@@ -1,8 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { chunks } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useMemo } from "react";
 
@@ -21,12 +19,12 @@ interface Testimonial {
 function RenderTweet({ tweet: { imageUrl, url } }: { tweet: Tweet }) {
     return (
         <div className="relative h-auto max-w-full border-solid border-[1px] border-slate-200 rounded-lg shadow-lg shadow-slate-300 p-2 flex flex-col">
-            <Image
+            <img
                 src={imageUrl}
                 alt="It is an image of a tweet with an MRR screenshot."
                 width={400}
                 height={800}
-                objectFit="contain"
+                style={{ objectFit: "contain" }}
             />
             <Link href={url} target="_blank">
                 <span className="absolute inset-0"></span>
