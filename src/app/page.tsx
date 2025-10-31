@@ -264,11 +264,11 @@ export default function Home() {
             <div className="mt-20 flex">
                 <div className="mx-auto">
                     <a
-                        href="https://www.producthunt.com/posts/mrrporn?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-mrrporn"
+                        href="https://web.archive.org/web/20241207115607/https://www.producthunt.com/products/mrrporn"
                         target="_blank"
                     >
                         <img
-                            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=409288&theme=neutral"
+                            src="/featured.svg"
                             alt="MRRPorn - Your&#0032;daily&#0032;safe&#0032;dose&#0032;of&#0032;MRR&#0032;screenshots | Product Hunt"
                             style={{ width: "250px", height: "54px" }}
                             width="250"
